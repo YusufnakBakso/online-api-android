@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".addBook">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textadd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add New Book"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <EditText
+            android:id="@+id/isbnEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ISBN"
+            android:inputType="text"
+            android:padding="15dp"
+            android:layout_marginBottom="12dp"
+            android:background="@android:drawable/editbox_background" />
+
+        <EditText
+            android:id="@+id/titleEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Title"
+            android:inputType="text"
+            android:padding="15dp"
+            android:layout_marginBottom="12dp"
+            android:background="@android:drawable/editbox_background" />
+
+        <EditText
+            android:id="@+id/authorEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Author"
+            android:inputType="text"
+            android:padding="15dp"
+            android:layout_marginBottom="12dp"
+            android:background="@android:drawable/editbox_background" />
+
+        <EditText
+            android:id="@+id/publisherEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Publisher"
+            android:inputType="text"
+            android:padding="15dp"
+            android:layout_marginBottom="12dp"
+            android:background="@android:drawable/editbox_background" />
+
+        <EditText
+            android:id="@+id/publishedDateEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/published_date_yyyy_mm_dd"
+            android:inputType="date"
+            android:padding="15dp"
+            android:layout_marginBottom="12dp"
+            android:background="@android:drawable/editbox_background" />
+
+        <EditText
+            android:id="@+id/genreEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Genre"
+            android:inputType="text"
+            android:padding="15dp"
+            android:layout_marginBottom="12dp"
+            android:background="@android:drawable/editbox_background" />
+
+        <EditText
+            android:id="@+id/languageEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Language"
+            android:inputType="text"
+            android:padding="15dp"
+            android:layout_marginBottom="12dp"
+            android:background="@android:drawable/editbox_background" />
+
+        <EditText
+            android:id="@+id/descriptionEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:maxLines="5"
+            android:padding="15dp"
+            android:layout_marginBottom="20dp"
+            android:background="@android:drawable/editbox_background" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
+
+            <Button
+                android:id="@+id/cancelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="#A9A9A9" />
+
+            <Button
+                android:id="@+id/addButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Book"
+                android:backgroundTint="#4CAF50" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

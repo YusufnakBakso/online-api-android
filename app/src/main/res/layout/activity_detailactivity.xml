@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_color">
+
+    <!-- Header with Edit/Delete Actions -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="end">
+
+        <ImageButton
+            android:id="@+id/editButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_edit"
+            android:contentDescription="Edit Book"
+            android:padding="12dp"
+            app:tint="@color/primary_color" />
+
+        <ImageButton
+            android:id="@+id/deleteButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_delete"
+            android:contentDescription="Delete Book"
+            android:padding="12dp"
+            app:tint="@color/error_color" />
+    </LinearLayout>
+
+    <!-- Loading View -->
+    <FrameLayout
+        android:id="@+id/loadingView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/background_color"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/primary_color" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:text="Loading book details..."
+            android:textColor="@color/text_secondary"
+            android:textSize="16sp" />
+    </FrameLayout>
+
+    <!-- Content ScrollView -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Header Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:gravity="center">
+
+                    <!-- Book Cover -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="8dp"
+                        android:layout_marginBottom="16dp">
+
+                        <ImageView
+                            android:id="@+id/detailCoverImageView"
+                            android:layout_width="160dp"
+                            android:layout_height="240dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_book_placeholder"
+                            android:contentDescription="Book Cover" />
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Title -->
+                    <TextView
+                        android:id="@+id/detailTitleTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"
+                        android:layout_marginBottom="8dp"
+                        android:lineSpacingExtra="4dp"
+                        tools:text="The Hitchhiker's Guide to the Galaxy" />
+
+                    <!-- Author -->
+                    <TextView
+                        android:id="@+id/detailAuthorTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textColor="@color/text_secondary"
+                        android:gravity="center"
+                        android:layout_marginBottom="4dp"
+                        tools:text="Douglas Adams" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Details Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Book Details"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginBottom="16dp" />
+
+                    <TableLayout
+                        android:id="@+id/detailsTable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:stretchColumns="1">
+
+                        <TableRow android:layout_marginBottom="12dp">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="ISBN"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:paddingEnd="16dp" />
+                            <TextView
+                                android:id="@+id/detailIsbnTextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="14sp"
+                                tools:text="9780553418026" />
+                        </TableRow>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/divider_color"
+                            android:layout_marginBottom="12dp" />
+
+                        <TableRow android:layout_marginBottom="12dp">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Publisher"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:paddingEnd="16dp" />
+                            <TextView
+                                android:id="@+id/detailPublisherTextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="14sp"
+                                tools:text="Crown Publishing Group" />
+                        </TableRow>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/divider_color"
+                            android:layout_marginBottom="12dp" />
+
+                        <TableRow android:layout_marginBottom="12dp">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Published"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:paddingEnd="16dp" />
+                            <TextView
+                                android:id="@+id/detailPublishedDateTextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="14sp"
+                                tools:text="February 11, 2014" />
+                        </TableRow>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/divider_color"
+                            android:layout_marginBottom="12dp" />
+
+                        <TableRow android:layout_marginBottom="12dp">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Genre"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:paddingEnd="16dp" />
+                            <TextView
+                                android:id="@+id/detailGenreTextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="14sp"
+                                tools:text="Science Fiction" />
+                        </TableRow>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/divider_color"
+                            android:layout_marginBottom="12dp" />
+
+                        <TableRow>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Language"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:paddingEnd="16dp" />
+                            <TextView
+                                android:id="@+id/detailLanguageTextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="14sp"
+                                tools:text="English" />
+                        </TableRow>
+                    </TableLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Description Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/descriptionLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Description"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginBottom="12dp" />
+
+                    <ScrollView
+                        android:id="@+id/descriptionScrollView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxHeight="200dp">
+
+                        <TextView
+                            android:id="@+id/detailDescriptionTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="@color/text_secondary"
+                            android:lineSpacingExtra="4dp"
+                            android:justificationMode="inter_word"
+                            tools:text="A long description of the book goes here. This is where all the exciting details about the story, characters, and plot will be displayed for the user to read." />
+                    </ScrollView>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Close Button -->
+    <Button
+        android:id="@+id/closeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Close"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/error_color"
+        android:textColor="@color/white"
+        android:paddingVertical="12dp"
+        app:cornerRadius="8dp"
+        style="@style/Widget.Material3.Button.UnelevatedButton" />
+
+</LinearLayout>

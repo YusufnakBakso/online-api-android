@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">UKT</string>
+    <string name="name">name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="phone">Phone</string>
+    <string name="login">Login</string>
+    <string name="selamat_datang_user">selamat_datang_user</string>
+    <string name="logout">Logout</string>
+    <string name="register">Register</string>
+    <string name="close">Close</string>
+    <string name="description">Description</string>
+    <string name="language">Language:</string>
+    <string name="genre">Genre:</string>
+    <string name="published_date_yyyy_mm_dd">Published Date (YYYY-MM-DD)</string>
+</resources>

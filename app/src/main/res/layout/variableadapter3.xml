@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/detailCoverImageView"
+        android:layout_width="160dp"
+        android:layout_height="240dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:scaleType="centerCrop"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:contentDescription="Book Cover" />
+
+    <TextView
+        android:id="@+id/detailTitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="12dp"
+        tools:text="Book Title" />
+
+    <TextView
+        android:id="@+id/detailAuthorTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"
+        tools:text="Author Name" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <TableRow android:layout_marginBottom="8dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ISBN:"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp" />
+            <TextView
+                android:id="@+id/detailIsbnTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="9780553418026" />
+        </TableRow>
+
+        <TableRow android:layout_marginBottom="8dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Publisher:"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp" />
+            <TextView
+                android:id="@+id/detailPublisherTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Crown Publishing Group" />
+        </TableRow>
+
+        <TableRow android:layout_marginBottom="8dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Published:"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp" />
+            <TextView
+                android:id="@+id/detailPublishedDateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="2014-02-11" />
+        </TableRow>
+
+        <TableRow android:layout_marginBottom="8dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/genre"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp" />
+            <TextView
+                android:id="@+id/detailGenreTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Science Fiction" />
+        </TableRow>
+
+        <TableRow android:layout_marginBottom="8dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/language"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp" />
+            <TextView
+                android:id="@+id/detailLanguageTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="English" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/description"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/detailDescriptionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textSize="14sp"
+            tools:text="A long description of the book goes here..." />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/closeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/close"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>

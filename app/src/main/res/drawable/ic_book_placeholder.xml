@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="160dp"
+    android:height="240dp"
+    android:viewportWidth="160"
+    android:viewportHeight="240">
+
+    <!-- Background -->
+    <path
+        android:pathData="M0,0 L160,0 L160,240 L0,240 Z"
+        android:fillColor="#E0E0E0"/>
+
+    <!-- Book spine -->
+    <path
+        android:pathData="M20,20 L140,20 L140,220 L20,220 Z"
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#BDBDBD"
+        android:strokeWidth="1"/>
+
+    <!-- Book icon -->
+    <path
+        android:pathData="M60,70 L100,70 L100,170 L60,170 Z"
+        android:fillColor="#9E9E9E"/>
+
+    <!-- Book pages indicator -->
+    <path
+        android:pathData="M65,75 L95,75"
+        android:strokeColor="#757575"
+        android:strokeWidth="1"/>
+    <path
+        android:pathData="M65,85 L95,85"
+        android:strokeColor="#757575"
+        android:strokeWidth="1"/>
+    <path
+        android:pathData="M65,95 L95,95"
+        android:strokeColor="#757575"
+        android:strokeWidth="1"/>
+    <path
+        android:pathData="M65,105 L85,105"
+        android:strokeColor="#757575"
+        android:strokeWidth="1"/>
+
+    <!-- "No Image" text -->
+    <path
+        android:pathData="M45,190 L115,190"
+        android:strokeColor="#9E9E9E"
+        android:strokeWidth="12"
+        android:strokeLineCap="round"/>
+    <path
+        android:pathData="M80,180 L80,200"
+        android:strokeColor="#9E9E9E"
+        android:strokeWidth="12"
+        android:strokeLineCap="round"/>
+</vector>
